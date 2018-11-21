@@ -1,0 +1,25 @@
+<h3>Aggiungi Prodotto</h3>
+<form [formGroup]="prodottoForm">
+  <div>
+    <label for="nome">Nome</label>
+    <input type="text" formControlName="nome">
+    <span [hidden]="prodottoForm.controls['nome'].valid || prodottoForm.controls['nome'].pristine">
+      Il nome è obbligatorio e non può superare i 30 caratteri!
+    </span>
+  </div>
+  <div>
+    <label for="prezzo">Prezzo</label>
+    <input type="number" formControlName="prezzo">
+    <span [hidden]="prodottoForm.controls['prezzo'].valid || prodottoForm.controls['prezzo'].pristine">
+      Il prezzo è obbligatorio
+    </span>
+  </div>
+  <div>
+    <label for="descrizione">Descrizione</label>
+    <textarea formControlName="descrizione"></textarea>
+    <span [hidden]="prodottoForm.controls['descrizione'].valid || prodottoForm.controls['descrizione'].pristine">
+      La descrizione è obbligatoria e di lunghezza compresa tra 20 e 150 caratteri
+    </span>
+  </div>
+  <button type="button" [disabled]="prodottoForm.pristine || !prodottoForm.valid" (click)="aggiungiProdotto()">Conferma</button>
+</form>

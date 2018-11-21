@@ -1,0 +1,12 @@
+<h3>{{prodotto.nome}}</h3>
+<i>{{prodotto.prezzoUnitario}} €</i><br />
+<p>
+  {{prodotto.descrizione}}
+</p>
+<button (click)="incrementaApprezzamenti($event)">Mi piace</button>
+<div>
+  <input [(ngModel)]="quantita" type="number" />
+  <p *ngIf="quantita > 0">
+    Quantità selezionata: {{quantita}} - Prezzo totale: {{quantita * prodotto.prezzoUnitario}} €
+  </p>
+</div>
