@@ -26,7 +26,7 @@ export class AddProdottoComponent {
     let prodotto = new Prodotto();
     prodotto.nome = this.prodottoForm.value.nome;
     prodotto.descrizione = this.prodottoForm.value.descrizione;
-    prodotto.prezzoUnitario = this.prodottoForm.value.prezzoUnitario;
+    prodotto.prezzoUnitario = this.prodottoForm.value.prezzo;
     this.nuovo.emit(prodotto);
   }
 }

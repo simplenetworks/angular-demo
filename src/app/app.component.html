@@ -1,6 +1,6 @@
 <h1>{{title}}</h1>
 
-<app-add-prodotto></app-add-prodotto>
+<app-add-prodotto (nuovo)="aggiungiProdotto($event)"></app-add-prodotto>
 
 <app-lista-prodotti [elencoProdotti]="elencoProdotti" (select)="selezionaProdotto($event)"></app-lista-prodotti>
 
