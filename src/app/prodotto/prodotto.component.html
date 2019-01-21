@@ -7,6 +7,6 @@
 <div>
   <input [(ngModel)]="quantita" type="number" />
   <p *ngIf="quantita > 0">
-    Quantità selezionata: {{quantita}} - Prezzo totale: {{quantita * prodotto.prezzoUnitario}} €
+    Quantità selezionata: {{quantita}} - Prezzo totale: {{quantita * prodotto.prezzoUnitario | number:"2.2"}} €
   </p>
 </div>

@@ -7,9 +7,10 @@ import { ProdottoComponent } from "./prodotto/prodotto.component";
 import { ListaProdottiComponent } from "./lista-prodotti/lista-prodotti.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AddProdottoComponent } from "./add-prodotto/add-prodotto.component";
+import { TruncatePipe } from './truncate.pipe';
 
 @NgModule({
-  declarations: [AppComponent, ProdottoComponent, ListaProdottiComponent, AddProdottoComponent],
+  declarations: [AppComponent, ProdottoComponent, ListaProdottiComponent, AddProdottoComponent, TruncatePipe],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]

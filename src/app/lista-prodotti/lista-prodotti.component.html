@@ -1,7 +1,7 @@
 <h3>Lista prodotti</h3>
 <ul>
   <li *ngFor="let prodotto of elencoProdotti">
-    <b>{{prodotto.nome}}</b> - {{prodotto.prezzoUnitario}} € <span *ngIf="prodotto.numApprezzamenti > 0">{{prodotto.numApprezzamenti}}
+    <b>{{prodotto.nome | truncate: 5}}</b> - {{prodotto.prezzoUnitario}} € <span *ngIf="prodotto.numApprezzamenti > 0">{{prodotto.numApprezzamenti}}
       like</span>
     <button (click)="scegliProdotto(prodotto)">Scegli</button>
   </li>

@@ -1,3 +1,4 @@
+import { ProdottiService } from "./services/prodotti.service";
 import { Prodotto } from "./models/prodotto";
 import { Component } from "@angular/core";
 
@@ -9,40 +10,15 @@ import { Component } from "@angular/core";
 export class AppComponent {
   title = "Catalogo prodotti";
 
-  elencoProdotti: Prodotto[] = [];
-
   prodottoCorrente: Prodotto;
-  constructor() {
-    this.elencoProdotti = [
-      {
-        nome: "Nokia 3310",
-        descrizione: "Il miglior telefono al mondo",
-        prezzoUnitario: 99,
-        numApprezzamenti: 0
-      },
-      {
-        nome: "iPhone XS",
-        descrizione: "Aifon Tennis",
-        prezzoUnitario: 9999,
-        numApprezzamenti: 0
-      },
-      {
-        nome: "iPhone XS Max",
-        descrizione: "Aifon tennis massimiliano",
-        prezzoUnitario: 999999,
-        numApprezzamenti: 0
-      },
-      {
-        nome: "Cabina Telefonica",
-        descrizione: "Vintage Style",
-        prezzoUnitario: 5,
-        numApprezzamenti: 0
-      }
-    ];
+  constructor(private prodottiService: ProdottiService) {}
+
+  get elencoProdotti() {
+    return this.prodottiService.listaProdotti();
   }
 
   aggiungiProdotto(prodotto: Prodotto) {
-    this.elencoProdotti.push(prodotto);
+    this.prodottiService.aggiungiProdotto(prodotto);
   }
 
   selezionaProdotto(prodotto: Prodotto) {
