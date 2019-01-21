@@ -1,5 +1,7 @@
-import { Prodotto } from "./../models/prodotto";
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+
+import { ProdottiService } from "./../services/prodotti.service";
 
 @Component({
   selector: "app-lista-prodotti",
@@ -7,17 +9,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
   styleUrls: ["./lista-prodotti.component.css"]
 })
 export class ListaProdottiComponent implements OnInit {
-  @Input()
-  elencoProdotti: Prodotto[];
-
-  @Output()
-  select = new EventEmitter<Prodotto>();
-
-  constructor() {}
+  constructor(private prodottiService: ProdottiService, private router: Router) {}
 
   ngOnInit() {}
 
-  scegliProdotto(prodotto: Prodotto) {
-    this.select.emit(prodotto);
+  get elencoProdotti() {
+    return this.prodottiService.listaProdotti();
   }
 }

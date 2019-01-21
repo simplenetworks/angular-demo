@@ -1,7 +1,9 @@
-import { ProdottoComponent } from "./prodotto/prodotto.component";
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+import { RouterModule, Routes } from "@angular/router";
+
+import { AddProdottoComponent } from "./add-prodotto/add-prodotto.component";
 import { ListaProdottiComponent } from "./lista-prodotti/lista-prodotti.component";
+import { ProdottoComponent } from "./prodotto/prodotto.component";
 
 const routes: Routes = [
   {
@@ -9,7 +11,11 @@ const routes: Routes = [
     component: ListaProdottiComponent
   },
   {
-    path: "dettaglio",
+    path: "nuovo-prodotto",
+    component: AddProdottoComponent
+  },
+  {
+    path: "edit-prodotto/:index",
     component: ProdottoComponent
   }
 ];

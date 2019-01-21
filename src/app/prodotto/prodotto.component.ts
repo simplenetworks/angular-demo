@@ -1,5 +1,7 @@
+import { ProdottiService } from "./../services/prodotti.service";
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Prodotto } from "../models/prodotto";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-prodotto",
@@ -7,15 +9,19 @@ import { Prodotto } from "../models/prodotto";
   styleUrls: ["./prodotto.component.css"]
 })
 export class ProdottoComponent implements OnInit {
-  @Input()
   prodotto: Prodotto;
   @Output()
   like = new EventEmitter<number>();
 
   quantita: number = 0;
 
-  constructor() {}
-  ngOnInit() {}
+  constructor(private route: ActivatedRoute, private prodottiService: ProdottiService) {}
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.prodotto = this.prodottiService.getProdotto(params["index"]);
+    });
+  }
 
   incrementaApprezzamenti(event) {
     this.prodotto.numApprezzamenti = this.prodotto.numApprezzamenti + 1;

@@ -1,10 +1,16 @@
 <h1>{{title}}</h1>
 
-<app-add-prodotto (nuovo)="aggiungiProdotto($event)"></app-add-prodotto>
+<nav>
+  <a routerLink="/">Lista prodotti</a>
+  <a routerLink="/nuovo-prodotto">Aggiungi prodotto</a>
+  <router-outlet></router-outlet>
+</nav>
+
+<!-- <app-add-prodotto (nuovo)="aggiungiProdotto($event)"></app-add-prodotto>
 
 <app-lista-prodotti [elencoProdotti]="elencoProdotti" (select)="selezionaProdotto($event)"></app-lista-prodotti>
 
 <div *ngIf="prodottoCorrente">
   <app-prodotto [prodotto]="prodottoCorrente" (like)="mostraMessaggioRingraziamento($event)">
   </app-prodotto>
-</div>
+</div> -->

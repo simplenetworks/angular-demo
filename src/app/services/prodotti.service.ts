@@ -43,4 +43,8 @@ export class ProdottiService {
   listaProdotti(): Prodotto[] {
     return this.elencoProdotti;
   }
+
+  getProdotto(index: number) {
+    return this.elencoProdotti && this.elencoProdotti.length > index ? this.elencoProdotti[index] : null;
+  }
 }

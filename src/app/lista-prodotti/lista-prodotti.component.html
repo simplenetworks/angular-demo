@@ -1,8 +1,11 @@
 <h3>Lista prodotti</h3>
 <ul>
-  <li *ngFor="let prodotto of elencoProdotti">
+  <li *ngFor="let prodotto of elencoProdotti; let i = index">
     <b>{{prodotto.nome | truncate: 5}}</b> - {{prodotto.prezzoUnitario}} € <span *ngIf="prodotto.numApprezzamenti > 0">{{prodotto.numApprezzamenti}}
       like</span>
-    <button (click)="scegliProdotto(prodotto)">Scegli</button>
+    <a [routerLink]="['/edit-prodotto', i]">
+      Scegli
+    </a>
+
   </li>
 </ul>

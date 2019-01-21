@@ -1,6 +1,7 @@
 import { Prodotto } from "./../models/prodotto";
 import { Component, Output, EventEmitter } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ProdottiService } from "../services/prodotti.service";
 
 @Component({
   selector: "app-add-prodotto",
@@ -10,10 +11,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class AddProdottoComponent {
   prodottoForm: FormGroup;
 
-  @Output()
-  nuovo = new EventEmitter<Prodotto>();
-
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, private prodottiService: ProdottiService) {
     this.prodottoForm = fb.group({
       nome: ["", [Validators.required, Validators.maxLength(30)]],
       prezzo: ["", Validators.required],
@@ -27,6 +25,7 @@ export class AddProdottoComponent {
     prodotto.nome = this.prodottoForm.value.nome;
     prodotto.descrizione = this.prodottoForm.value.descrizione;
     prodotto.prezzoUnitario = this.prodottoForm.value.prezzo;
-    this.nuovo.emit(prodotto);
+    //this.nuovo.emit(prodotto);ù
+    this.prodottiService.aggiungiProdotto(prodotto);
   }
 }
