@@ -1,10 +1,10 @@
 <h1>{{title}}</h1>
 
-<nav>
-  <a routerLink="/">Lista prodotti</a>
-  <a routerLink="/nuovo-prodotto">Aggiungi prodotto</a>
-  <router-outlet></router-outlet>
-</nav>
+<mat-toolbar color="primary">
+  <button mat-button routerLink="/">Lista prodotti</button>
+  <button mat-button routerLink="/nuovo-prodotto">Aggiungi prodotto</button>
+</mat-toolbar>
+<router-outlet></router-outlet>
 
 <!-- <app-add-prodotto (nuovo)="aggiungiProdotto($event)"></app-add-prodotto>
 

@@ -1,25 +1,33 @@
-<h3>Aggiungi Prodotto</h3>
-<form [formGroup]="prodottoForm">
-  <div>
-    <label for="nome">Nome</label>
-    <input type="text" formControlName="nome">
-    <span [hidden]="prodottoForm.controls['nome'].valid || prodottoForm.controls['nome'].pristine">
-      Il nome è obbligatorio e non può superare i 30 caratteri!
-    </span>
-  </div>
-  <div>
-    <label for="prezzo">Prezzo</label>
-    <input type="number" formControlName="prezzo">
-    <span [hidden]="prodottoForm.controls['prezzo'].valid || prodottoForm.controls['prezzo'].pristine">
-      Il prezzo è obbligatorio
-    </span>
-  </div>
-  <div>
-    <label for="descrizione">Descrizione</label>
-    <textarea formControlName="descrizione"></textarea>
-    <span [hidden]="prodottoForm.controls['descrizione'].valid || prodottoForm.controls['descrizione'].pristine">
-      La descrizione è obbligatoria e di lunghezza compresa tra 20 e 150 caratteri
-    </span>
-  </div>
-  <button type="button" [disabled]="prodottoForm.pristine || !prodottoForm.valid" (click)="aggiungiProdotto()">Conferma</button>
-</form>
+<mat-card>
+  <mat-card-title>
+    Aggiungi Prodotto
+  </mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="prodottoForm" class="form-container">
+      <mat-form-field>
+        <label for="nome">Nome</label>
+        <input matInput type="text" formControlName="nome">
+        <span [hidden]="prodottoForm.controls['nome'].valid || prodottoForm.controls['nome'].pristine">
+          Il nome è obbligatorio e non può superare i 30 caratteri!
+        </span>
+      </mat-form-field>
+      <mat-form-field>
+        <label for="prezzo">Prezzo</label>
+        <input matInput type="number" formControlName="prezzo">
+        <span [hidden]="prodottoForm.controls['prezzo'].valid || prodottoForm.controls['prezzo'].pristine">
+          Il prezzo è obbligatorio
+        </span>
+      </mat-form-field>
+      <mat-form-field>
+        <label for="descrizione">Descrizione</label>
+        <textarea matInput formControlName="descrizione"></textarea>
+        <span [hidden]="prodottoForm.controls['descrizione'].valid || prodottoForm.controls['descrizione'].pristine">
+          La descrizione è obbligatoria e di lunghezza compresa tra 20 e 150 caratteri
+        </span>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button type="button" [disabled]="prodottoForm.pristine || !prodottoForm.valid" (click)="aggiungiProdotto()">Conferma</button>
+  </mat-card-actions>
+</mat-card>

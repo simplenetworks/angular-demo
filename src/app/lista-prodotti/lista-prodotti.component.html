@@ -1,11 +1,11 @@
 <h3>Lista prodotti</h3>
-<ul>
-  <li *ngFor="let prodotto of elencoProdotti; let i = index">
+
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let prodotto of elencoProdotti; let i = index">
     <b>{{prodotto.nome | truncate: 5}}</b> - {{prodotto.prezzoUnitario}} € <span *ngIf="prodotto.numApprezzamenti > 0">{{prodotto.numApprezzamenti}}
       like</span>
     <a [routerLink]="['/edit-prodotto', i]">
       Scegli
     </a>
-
-  </li>
-</ul>
+  </mat-list-item>
+</mat-list>
