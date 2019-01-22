@@ -18,9 +18,10 @@ export class ProdottoComponent implements OnInit {
   constructor(private route: ActivatedRoute, private prodottiService: ProdottiService) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.prodotto = this.prodottiService.getProdotto(params["index"]);
-    });
+    // this.route.params.subscribe(params => {
+    //   this.prodotto = this.prodottiService.getProdotto(params["index"]);
+    // });
+    this.prodotto = this.route.snapshot.data.prodotto;
   }
 
   incrementaApprezzamenti(event) {

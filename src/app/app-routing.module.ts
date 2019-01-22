@@ -4,6 +4,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { AddProdottoComponent } from "./add-prodotto/add-prodotto.component";
 import { ListaProdottiComponent } from "./lista-prodotti/lista-prodotti.component";
 import { ProdottoComponent } from "./prodotto/prodotto.component";
+import { ProdottoResolver } from "./prodotto-resolver.service";
 
 const routes: Routes = [
   {
@@ -16,12 +17,16 @@ const routes: Routes = [
   },
   {
     path: "edit-prodotto/:index",
-    component: ProdottoComponent
+    component: ProdottoComponent,
+    resolve: {
+      prodotto: ProdottoResolver
+    }
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+  providers: [ProdottoResolver],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
